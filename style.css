@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@100&display=swap');
+body {
+background-color:#101010;
+margin:0px 0;
+}
+
+.stop-clicking {
+	
+  position: fixed;
+  background-color:hsl(0, 0%, 0%, 0%);
+  visibility:hidden;
+  opacity:1;
+  z-index:40;
+  width: 100%;
+  height: 100%;
+  transition: all 0.25s ease-out;
+	
+}
+
+.songname {
+	
+font-size:72px;
+font-family: 'Raleway', sans-serif;
+
+}
+
+.radiopopup {
+	
+  position: fixed;
+  background-color:hsl(0, 0%, 0%, 0%);
+  visibility:hidden;
+  opacity:1;
+  z-index:50;
+  width: 60%;
+  height: 60%;
+  margin:10% 20%;
+  transition: all 0.25s ease-out;
+  border: solid 6px;
+  border-color: #695213;
+  border-radius: 25px;
+	
+}
+
+.songbar {
+	position:relative;
+	border-radius: 25px;
+}
+
+.songbar h2 {
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:24px;
+	font-family: 'Raleway', sans-serif;
+	color:white;
+}
+
+@-webkit-keyframes marqueelike {
+	0%, 100% {margin-left:-100%;}
+	99.99% {margin-left:50%;}
+ }
+@-moz-keyframes marqueelike {
+	0%, 100% {margin-left:-100%;}
+	99.99% {margin-left:50%;}
+ }
+@-o-keyframes marqueelike {
+	0%, 100% {margin-left:-100%;}
+	99.99% {margin-left:50%;}
+ }
+@-ms-keyframes marqueelike {
+	0%, 100% {margin-left:-100%;}
+	99.99% {margin-left:50%;}
+ }
+@keyframes marqueelike {
+	0%, 100% {margin-left:-100%;}
+	99.99% {margin-left:50%;}
+ }
+ 
+ 
+ 
+ 
+.songbar2 {
+	position:absolute;
+	-webkit-animation:linear marqueelike2 25s infinite ;
+	-moz-animation:linear marqueelike2 25s infinite ;
+	-o-animation:linear marqueelike2 25s infinite ;
+	-ms-animation:linear marqueelike2 25s infinite ;
+	animation:linear marqueelike2 25s infinite ;
+}
+
+.songname3 {
+	
+position:absolute;
+left:43%;
+top:0%;
+font-size:20px;
+font-family: 'Raleway', sans-serif;
+	
+}
+
+@-webkit-keyframes marqueelike2 {
+	0%, 100% {margin-left:-200%;}
+	99.99% {margin-left:50%;}
+ }
+@-moz-keyframes marqueelike2 {
+	0%, 100% {margin-left:-200%;}
+	99.99% {margin-left:50%;}
+ }
+@-o-keyframes marqueelike2 {
+	0%, 100% {margin-left:-200%;}
+	99.99% {margin-left:50%;}
+ }
+@-ms-keyframes marqueelike2 {
+	0%, 100% {margin-left:-200%;}
+	99.99% {margin-left:50%;}
+ }
+@keyframes marqueelike2 {
+	0%, 100% {margin-left:-200%;}
+	99.99% {margin-left:50%;}
+ }
+ 
+ 
+ 
+.crossradio {
+	
+  font-size:50px;
+  text-align:right;
+  margin-top:-10px;
+  vertical-align:top;
+	
+}
+
+#canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index:-1;
+  border-radius: 19px;
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.blur {
+  filter: blur(0px);
+}
+ 
+.topmenu p,a {
+display:inline;
+color:#c0c0c0;
+text-decoration:none;
+position: relative;
+text-align: center;
+padding: 0px 5px;
+transition: all 0.25s ease-out;
+}
+
+.topmenu p:hover {
+color:#ffffff;
+font-size:17px;
+}
+
+.topmenu {
+font-family: 'Montserrat', sans-serif;
+text-align: center;
+margin:60px 0;
+animation-name: appear3;
+animation-duration: 2s;
+}
+
+.titlelogo{
+width:47.3em;
+  display: block;
+margin: 0 auto;  
+animation-name: appear3;
+animation-duration: 2s;
+}
+
+.titlelogo img{
+width:100%;
+}
+
+@keyframes appear1 {
+  0%   {opacity: 0;transform: translate(0px, 100px);}
+  100%   {opacity: 1;transform: translate(0px, 0px);}
+}
+
+
+@keyframes appear2 {
+  0%   {opacity: 0;transform: translate(-800px, 0px);}
+  100%   {opacity: 1;transform: translate(0px, 0px);}
+}
+
+@keyframes appear3 {
+  0%   {opacity: 0;transform: translate(0px, -400px);}
+  100%   {opacity: 1;transform: translate(0px, 0px);}
+}
+
+@keyframes appear4 {
+  0%   {opacity: 0;}
+  100%   {opacity: 1;}
+}
+
+.button a p {
+	
+color: #fcba03;
+	
+}
+
+.button > a > p {
+	
+background-color: #101010;
+border: solid 1px;
+border-color: #695213;
+height:50px;
+width: 230px;
+border-radius: 100px;
+transition: all 0.25s ease-out;
+	
+}
+
+.button:hover > a > p {
+	
+background-color: #fcba03;
+height:50px;
+width: 230px;
+border-color: hsl(0, 0%, 0%);
+border-radius: 100px;
+color:white;
+	
+}
+
+.descriptionDIV {
+display: flex;
+max-width:100%;
+background:url(images/screen-0.webp);
+background-size: 75em;
+box-shadow: inset 0px 200px 83px -147px rgba(0,0,0,1);
+}
+
+
+.desc2 {
+
+width: 30%;
+position:relative;
+font-family: 'Raleway', sans-serif;
+margin: auto auto; 
+padding: 0 5em; 
+right:0;
+animation-name: appear1;
+animation-duration: 4s;
+vertical-align: middle;
+	
+}
+
+.desc2 h1 {
+
+color:#fcba03;
+font-size:72px;
+
+}
+
+.desc2 h2,p {
+
+color:white;
+
+}
+
+.radio {
+
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+margin: 0 10%;
+color:black;
+ z-index:1;
+  max-width:30%;
+  width: auto;
+  height: 40em;
+animation-name: appear4;
+animation-duration: 4s;
+
+}
+
+.radio img {
+
+width:100%;
+height:auto;
+
+}
+
+.about1 {
+
+position: relative;
+background-color:#fcba03;
+color:white;
+width:100%;
+height:500px;
+
+}
+.about2 {
+
+position: relative;
+font-family: 'Raleway', sans-serif;
+margin: 0 auto;  
+width:60%;
+height:80%;
+animation-name: appear2;
+animation-duration: 4s;
+	
+}
+
+.about2 h1 {
+
+font-size:72px;
+
+}
+
+.about2 h2,p {
+
+}
+
+.crew2 {
+	
+position: relative;
+font-family: 'Raleway', sans-serif;  
+display:block;
+width:45em;
+margin:0 auto;
+padding:70px 0px;
+animation-name: appear2;
+animation-duration: 2s;
+	
+}
+
+.crew2 h2,p {
+
+}
+
+.crew2 h2 {
+color:#fcba03;
+}
+
+#line {
+	
+	background-color:white;
+	height:2px;
+	max-width:100%;
+	margin: 20px 20px;
+	
+}
+
+.crewdesc {
+	
+	display: flex;
+	margin:50px 0;
+	border-radius:25px;
+	background-color:rgba(20,20,20,0.5);
+	border:solid 2px black;
+	
+}
+
+.profil-img {
+	
+  width: 300px;
+  height: 300px;
+  margin-right:50px;
+position: relative;
+border-radius: 100%;
+font-family: 'Raleway', sans-serif;
+	
+}
+
+.profil-img img {
+
+  box-shadow: 3px 3px 3px #000000;
+  border-radius: 100%;
+  width: 300px;
+  height: 300px;
+	
+}
+
+.info1 {
+	
+position: relative;
+background-color:#050505;
+color:white;
+width:100%;
+height:200px;
+text-align:center
+	
+}
+
+.info2 {
+	
+position: relative;
+line-height: 10px;
+font-family: 'Raleway', sans-serif;
+font-size:12px;
+margin: 0 auto;  
+width:20%;
+height:80%;
+	
+}
