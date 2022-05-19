@@ -19,8 +19,61 @@
 
 
 		  <div style="text-align:center;" class="radiopopup">
+		  
+			<div id="volumebar">
+			  <div id="volumedot"> 
+			  </div>
+			</div>
+			
+			<div id="playbutton">
+			<a href="javascript:void(0)" onclick="togglePause()"><img id='playbuttonimg' class='unselectable' src='images/pause.png'/></a>
+			</div>
+			
+			<script>
+				var e = document.querySelector('#volumebar');
+				var eInner = document.querySelector('#volumedot');
+				var drag = false;
+				e.addEventListener('mousedown',function(ev){
+				   drag = true;
+				   eInner.style.cursor = 'grabbing'
+				   updateBar(ev.clientY);
+				});
+				document.addEventListener('mousemove',function(ev){
+				   if(drag){
+					  updateBar(ev.clientY);
+				   }
+				});
+				document.addEventListener('mouseup',function(ev){
+				 drag = false;
+				 eInner.style.cursor = 'grab'
+				});
+				var updateBar = function (y, vol) {
+				   var volume = e;
+						var percentage;
+						//if only volume have specificed
+						//then direct update volume
+						if (vol) {
+							percentage = vol * 100;
+						} else {
+							var position = y - volume.offsetTop - document.querySelector('.radiopopup').offsetTop - eInner.offsetHeight*0.75;
+							percentage = 100 * position / volume.clientHeight;
+						}
+
+						if (percentage > 100) {
+							percentage = 100;
+						}
+						if (percentage < 0) {
+							percentage = 0;
+						}
+
+						//update volume bar and video volume
+						eInner.style.top = percentage/100*28 -1.5 +'em';
+						audio.volume = (100 - percentage) / 100;
+				};
+			</script>
+			
 		    <div class="crossradio">
-		    <a href="javascript:void(0)" onclick="enableScroll()"><img src="images/cross.png" width="32px" height="32px"/></a>
+		    <a href="javascript:void(0)" onclick="enableScroll()"><img src="images/cross.png" class='unselectable' width="32px" height="32px"/></a>
 			</div>
 			<strong>
 			<p class="songname3" id="songname">Joue Actuellement :</p>
@@ -30,7 +83,7 @@
 			</marquee>
 			<br style="line-height:28px;">
 			</div>
-			<img style="max-width:100%;max-height:80%;margin-top:-2%" src="images/radio_logo.png"/>
+			<img style="max-width:100%;max-height:80%;margin-top:-2%" class='unselectable' src="images/radio_logo.png"/>
 			</strong>
 		  <canvas id="canvas"></canvas>
 		  </div>
@@ -44,7 +97,7 @@
 		  
 	  <div class="titlelogo"> 
 	  <a href="index.html">
-		<img src="images/naglogo.png">
+		<img src="images/naglogo.png" class='unselectable'>
 	  </a>
 	  </div>
 	
@@ -60,12 +113,12 @@
 	  
 	  
 	  <div class="descriptionDIV">
-		  <div class="radio"><img src="images/radio_logo.png"/></div>
+		  <div class="radio"><img class='unselectable' src="images/radio_logo.png"/></div>
 		  
 			<div class="desc2">
 			  <h1>RADIO N.A.G.</h1>
 			  <p>RADIO N.A.G. est une radio écoutable 24h/24h proposant principalement des bandes sons de jeux vidéos ou d'animés ainsi que des musiques plus classiques.</p>
-			  <div style="width:50px;" class="button">
+			  <div class="button">
 			  <a href="javascript:void(0)" onclick="disableScroll()"><p style="line-height: 50px;">ECOUTER RADIO N.A.G.</p></a>
 			  </div>
 			</div>

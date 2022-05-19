@@ -10,6 +10,16 @@ function parallax() {
   //alert(yPos);
 }
 
+
+
+
+
+
+
+
+
+
+
 window.addEventListener("scroll", function(){ 
 	parallax();	
 });
@@ -40,6 +50,28 @@ try {
 var wheelOpt = supportsPassive ? { passive: false } : false;
 var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 
+
+function togglePause() {
+	
+	let playbuttonimg = document.getElementById("playbuttonimg")
+	
+	if (audio.paused) {
+		
+		playbuttonimg.src = 'images/pause.png';
+		audio.src = "https://famillelusson.freeboxos.fr/nag";
+		audio.crossOrigin = "anonymous";
+		audio.play();
+	
+	} else {
+		
+		playbuttonimg.src = 'images/play.png'
+		audio.pause();
+		
+	}
+	
+}
+
+
 // call this to Disable
 function disableScroll() {
 
@@ -54,9 +86,10 @@ $('.stop-clicking').css('background-color','hsl(0, 0%, 0%, 50%)');
 $('.radiopopup').css('visibility','visible');
 $('.radiopopup').css('opacity','1');
 $('.radiopopup').css('background-color','hsl(0, 0%, 0%, 50%)');
-	audio.src = "https://famillelusson.freeboxos.fr/nag";
-	audio.crossOrigin = "anonymous";
-	audio.play();
+	if (audio.paused) {
+		audio.src = "https://famillelusson.freeboxos.fr/nag";
+		audio.crossOrigin = "anonymous";
+		audio.play();
     var context = new AudioContext();
     var src = context.createMediaElementSource(audio);
     var analyser = context.createAnalyser();
@@ -82,6 +115,7 @@ $('.radiopopup').css('background-color','hsl(0, 0%, 0%, 50%)');
     var barWidth = (WIDTH / bufferLength) * 2.5;
     var barHeight;
     var x = 0;
+	}
 
     function renderFrame() {
       requestAnimationFrame(renderFrame);
@@ -124,7 +158,6 @@ $('.stop-clicking').css('background-color','hsl(0, 0%, 0%, 0%)');
 $('.radiopopup').css('visibility','hidden');
 $('.radiopopup').css('opacity','0');
 $('.radiopopup').css('background-color','hsl(0, 0%, 0%, 0%)');
-audio.pause();
 }
 
 
