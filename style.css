@@ -623,3 +623,28 @@ height:80%;
 	}
 
 }
+
+
+@media only screen and (max-width: 500px) {
+	
+	.radio {
+		margin:0;
+		padding: 0px; 
+		max-width:0%;
+		visibility:hidden;
+		
+	}
+	
+	
+	.desc2 {
+
+		margin-left: 50px; 
+		margin-right: 50px; 
+		padding-left: 5px; 
+		padding-right: 5px; 
+		width:100%
+		
+	}
+	
+
+}
