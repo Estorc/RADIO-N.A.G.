@@ -4,12 +4,9 @@ background-color:#101010;
 margin:0px 0;
 }
 
-
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
-  cursor: url("images/cursor.png"), auto;
 }
 
 /* Track */
@@ -125,7 +122,8 @@ font-family: 'Raleway', sans-serif;
 .songname3 {
 	
 position:absolute;
-left:43%;
+text-align:center;
+width:100%;
 top:0%;
 font-size:20px;
 font-family: 'Raleway', sans-serif;
@@ -164,6 +162,12 @@ font-family: 'Raleway', sans-serif;
 	
 }
 
+.crossradio a {
+	
+  z-index:1;
+	
+}
+
 #canvas {
   position: absolute;
   left: 0;
@@ -183,7 +187,7 @@ font-family: 'Raleway', sans-serif;
 	border: solid #222 2em;
 	position: absolute;
 	width: 1em;
-	height: 28em;
+	height: 70%;
 	left: -10em;
 	top: 3em;
 	z-index:-1;
@@ -259,7 +263,7 @@ animation-duration: 2s;
 }
 
 .titlelogo{
-width:47.3em;
+width:40%;
   display: block;
 margin: 0 auto;  
 animation-name: appear3;
@@ -356,9 +360,10 @@ font-size:72px;
 
 }
 
-.desc2 h2,p {
+.desc2 h2, p {
 
 color:white;
+font-size: 1em;
 
 }
 
@@ -392,7 +397,7 @@ position: relative;
 background-color:#fcba03;
 color:white;
 width:100%;
-height:500px;
+height:25vw;
 
 }
 .about2 {
@@ -401,15 +406,18 @@ position: relative;
 font-family: 'Raleway', sans-serif;
 margin: 0 auto;  
 width:60%;
-height:80%;
+height:100%;
 animation-name: appear2;
 animation-duration: 4s;
+display: flex;
+justify-content: center;
+align-items: center;
 	
 }
 
 .about2 h1 {
 
-font-size:72px;
+font-size:5em;
 
 }
 
@@ -422,7 +430,7 @@ font-size:72px;
 position: relative;
 font-family: 'Raleway', sans-serif;  
 display:block;
-width:45em;
+width:40%;
 margin:0 auto;
 padding:70px 0px;
 animation-name: appear2;
@@ -459,8 +467,10 @@ color:#fcba03;
 
 .profil-img {
 	
+  display:flex;
+justify-content: center;
+align-items: center;
   width: 300px;
-  height: 300px;
   margin-right:50px;
 position: relative;
 border-radius: 100%;
@@ -472,8 +482,7 @@ font-family: 'Raleway', sans-serif;
 
   box-shadow: 3px 3px 3px #000000;
   border-radius: 100%;
-  width: 300px;
-  height: 300px;
+  width: 100%;
 	
 }
 
@@ -495,7 +504,122 @@ line-height: 10px;
 font-family: 'Raleway', sans-serif;
 font-size:12px;
 margin: 0 auto;  
-width:20%;
+width:100%;
 height:80%;
 	
+}
+
+
+
+	.radiopopupfloat {
+	
+	  position: fixed;
+	  background-color:hsl(0, 0%, 0%, 0%);
+	  visibility:hidden;
+	  opacity:1;
+	  z-index:50;
+	  width: 30em;
+	  height: 8em;
+	  right: 2%;
+	  bottom: 10%;
+	  transition: all 0.25s ease-out;
+		
+	}
+	
+	.radiopopupfloat h2 {
+	
+	  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+		
+	}
+	
+#canvas2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index:-3;
+}
+
+
+
+@media only screen and (max-width: 900px) {
+	
+	.radio {
+		margin:0;
+		padding: 5px; 
+		max-width:50%;
+		
+	}
+	
+	.about2 h1 {
+
+		font-size:2em;
+
+	}
+	
+	.crew2 {
+	
+		width:80%;
+		
+	}
+	
+	.titlelogo{
+		width:80%;
+	}
+	
+	.desc2 {
+
+		margin-left: 0; 
+		margin-right: 0; 
+		padding-left: 5px; 
+		padding-right: 5px; 
+		width:50%
+		
+	}
+	
+	.radiopopup {
+	
+	  position: fixed;
+	  background-color:hsl(0, 0%, 0%, 0%);
+	  visibility:hidden;
+	  opacity:1;
+	  z-index:50;
+	  width: 70%;
+	  height: 60%;
+	  right: 5%;
+	  margin:10% 0;
+	  transition: all 0.25s ease-out;
+	  border: solid 6px;
+	  border-color: #695213;
+	  border-radius: 25px;
+		
+	}
+	
+	#volumebar {
+	
+		position: absolute;
+		vertical-align: bottom;
+		display: block;
+		background-color:black;
+		border: solid #222 2em;
+		position: absolute;
+		width: 1em;
+		left: -30%;
+		top: 3em;
+		z-index:-1;
+		border-radius: 20px;
+		
+	}
+	
+	.radiopopupfloat {
+	
+	  display: block;
+	  margin:0 auto;
+	  right:auto;
+	  left: 50%;
+	  margin-left:-15em
+		
+	}
+
 }

@@ -4,6 +4,7 @@
 	  <meta charset="utf-8">
 	  <title>RADIO N.A.G. Corporation</title>
 	  <link rel="stylesheet" href="style.css">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 	  <script src="script.js"></script>
 	  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -19,7 +20,7 @@
 	</head>
 
 
-		  <div style="text-align:center;" class="radiopopup">
+		  <div style="text-align:center;" class="radiopopup unselectable">
 		  
 			<div id="volumebar">
 			  <div id="volumedot"> 
@@ -27,7 +28,7 @@
 			</div>
 			
 			<div id="playbutton">
-			<a href="javascript:void(0)" onclick="togglePause()"><img id='playbuttonimg' class='unselectable' src='images/pause.png'/></a>
+			<a href="javascript:void(0)" onclick="togglePause()"><img id='playbuttonimg' class='unselectable pauseButton' src='images/pause.png'/></a>
 			</div>
 			
 			<script>
@@ -44,10 +45,25 @@
 					  updateBar(ev.clientY);
 				   }
 				});
+				e.addEventListener('touchstart',function(ev){
+				   drag = true;
+				   eInner.style.cursor = 'grabbing'
+				   updateBar(ev.touches[0].clientY);
+				});
+				document.addEventListener('touchmove',function(ev){
+				   if(drag){
+					   updateBar(ev.touches[0].clientY);
+					}
+				});
 				document.addEventListener('mouseup',function(ev){
 				 drag = false;
 				 eInner.style.cursor = 'grab'
 				});
+				document.addEventListener('touchend',function(ev){
+				 drag = false;
+				 eInner.style.cursor = 'grab'
+				});
+				
 				var updateBar = function (y, vol) {
 				   var volume = e;
 						var percentage;
@@ -68,7 +84,7 @@
 						}
 
 						//update volume bar and video volume
-						eInner.style.top = percentage/100*28 -1.5 +'em';
+						eInner.style.top = 'calc('+ percentage +'% - 1.5em)';
 						audio.volume = (100 - percentage) / 100;
 				};
 			</script>
@@ -88,6 +104,34 @@
 			</strong>
 		  <canvas id="canvas"></canvas>
 		  </div>
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  <div style="text-align:center;" class="radiopopupfloat unselectable">
+		  
+		  
+			<div id="playbutton">
+			<a href="javascript:void(0)" onclick="togglePause()"><img id='playbuttonimg' class='unselectable pauseButton' src='images/pause.png'/></a>
+			</div>
+			
+			<strong>
+			<marquee style='text-stroke: 2px black;' behavior="scroll" class="songbar" id='currentPlaying2'>
+			<h2>∟</h2>
+			</marquee>
+			<br style="line-height:28px;">
+			</strong>
+		  <canvas id="canvas2"></canvas>
+		  </div>
+		  
+		  
+		  
+		  
+		  
 		  
 	<body>
 	
@@ -125,7 +169,7 @@
 			</div>
 	  </div>
 	    <div style="background-color:#101010;-webkit-box-shadow: 0px 0px 26px 9px rgba(0,0,0,0.99);-moz-box-shadow: 0px 0px 26px 9px rgba(0,0,0,0.99);box-shadow: 0px 0px 26px 9px rgba(0,0,0,0.99);" class="about1">
-		  <div style="text-align:center;" class="about2"><br /><br /><br /><br /><br /><br /><br />
+		  <div style="text-align:center;" class="about2">
 		    <h1>ADMINISTRATION</h1>
 	      </div>
 	    </div>
