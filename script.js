@@ -284,3 +284,15 @@ setInterval(function(){
 			document.title = (`${json.icestats.source.title} | RADIO N.A.G. Corporation`)
 		});
  }, 2000);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+function loadPage(url) {
+	
+	$(".blur").load(url);
+	
+}

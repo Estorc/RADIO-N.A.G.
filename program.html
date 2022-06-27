@@ -1,0 +1,170 @@
+<html lang="fr" prefix="og: http://ogp.me/ns#">
+
+	<head>
+	  <meta charset="utf-8">
+	  <title>RADIO N.A.G. Corporation</title>
+	  <link rel="stylesheet" href="style.css">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	  <script src="script.js"></script>
+	  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap" rel="stylesheet">
+	  <meta name="google-site-verification" content="S6ls5H-RfArrQ1yxYE8KdNZD5ltxl0KH0QN8TmRvHxg" />
+	  <meta property="og:image" content="https://estorc.github.io/RADIO-N.A.G./images/radio_logo.png" />
+	  <meta property="og:description" 
+		content="La radio officielle de la N.A.G. Corporation." />
+	  <meta property="og:url" content="https://estorc.github.io/RADIO-N.A.G./" />
+	  <meta property="og:title" content="Radio N.A.G." />
+	  <meta property="og:site_name" content="Radio N.A.G." />
+	  <link rel="icon" href="images/nag_token.png" />
+	</head>
+
+
+		  <div style="text-align:center;" class="radiopopup unselectable">
+		  
+			<div id="volumebar">
+			  <div id="volumedot"> 
+			  </div>
+			</div>
+			
+			<div id="playbutton">
+			<a href="javascript:void(0)" onclick="togglePause()"><img id='playbuttonimg' class='unselectable pauseButton' src='images/pause.png'/></a>
+			</div>
+			
+			<script>
+				var e = document.querySelector('#volumebar');
+				var eInner = document.querySelector('#volumedot');
+				var drag = false;
+				e.addEventListener('mousedown',function(ev){
+				   drag = true;
+				   eInner.style.cursor = 'grabbing'
+				   updateBar(ev.clientY);
+				});
+				document.addEventListener('mousemove',function(ev){
+				   if(drag){
+					  updateBar(ev.clientY);
+				   }
+				});
+				e.addEventListener('touchstart',function(ev){
+				   drag = true;
+				   eInner.style.cursor = 'grabbing'
+				   updateBar(ev.touches[0].clientY);
+				});
+				document.addEventListener('touchmove',function(ev){
+				   if(drag){
+					   updateBar(ev.touches[0].clientY);
+					}
+				});
+				document.addEventListener('mouseup',function(ev){
+				 drag = false;
+				 eInner.style.cursor = 'grab'
+				});
+				document.addEventListener('touchend',function(ev){
+				 drag = false;
+				 eInner.style.cursor = 'grab'
+				});
+				
+				var updateBar = function (y, vol) {
+				   var volume = e;
+						var percentage;
+						//if only volume have specificed
+						//then direct update volume
+						if (vol) {
+							percentage = vol * 100;
+						} else {
+							var position = y - volume.offsetTop - document.querySelector('.radiopopup').offsetTop - eInner.offsetHeight*0.75;
+							percentage = 100 * position / volume.clientHeight;
+						}
+
+						if (percentage > 100) {
+							percentage = 100;
+						}
+						if (percentage < 0) {
+							percentage = 0;
+						}
+
+						//update volume bar and video volume
+						eInner.style.top = 'calc('+ percentage +'% - 1.5em)';
+						audio.volume = (100 - percentage) / 100;
+				};
+			</script>
+			
+		    <div class="crossradio">
+		    <a href="javascript:void(0)" onclick="enableScroll()"><img src="images/cross.png" class='unselectable' width="32px" height="32px"/></a>
+			</div>
+			<strong>
+			<p class="songname3" id="songname">Joue Actuellement :</p>
+			<div style="margin:0 2em;text-align:left;border:solid 3px;border-color: #695213;border-radius: 25px;">
+			<marquee behavior="scroll" class="songbar" id='currentPlaying'>
+			<h2>ㅤ</h2>
+			</marquee>
+			<br style="line-height:28px;">
+			</div>
+			<img style="max-width:100%;max-height:80%;margin-top:-2%" class='unselectable' src="images/radio_logo.png"/>
+			</strong>
+		  <canvas id="canvas"></canvas>
+		  </div>
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  <div style="text-align:center;" class="radiopopupfloat unselectable">
+		  
+		  
+			<div id="playbutton">
+			<a href="javascript:void(0)" onclick="togglePause()"><img id='playbuttonimg' class='unselectable pauseButton' src='images/pause.png'/></a>
+			</div>
+			
+			<strong>
+			<marquee style='text-stroke: 2px black;' behavior="scroll" class="songbar" id='currentPlaying2'>
+			<h2>ㅤ</h2>
+			</marquee>
+			<br style="line-height:28px;">
+			</strong>
+		  <canvas id="canvas2"></canvas>
+		  </div>
+		  
+		  
+		  
+		  
+		  
+		  
+	<body>
+	
+	<div class="blur">
+		  <div class="stop-clicking">
+		  
+		  </div>
+		  
+	  <div class="titlelogo"> 
+	  <a href="index.html">
+		<img src="images/naglogo.png" class='unselectable'>
+	  </a>
+	  </div>
+	
+	  <nav class="topmenu">
+		<a href="javascript:loadPage('index.html')"><p>Accueil</p></a>
+		<a href="javascript:loadPage('program.html')"><p>Planning</p></a>
+	  </nav>
+	  
+	  
+	  <div class="descriptionDIV">
+		  <div style="margin: 50px auto; animation-name: appear1;animation-duration: 2s;">
+		  <iframe height="400px" width="800px" scrolling="no" frameborder="0" src="http://famillelusson.freeboxos.fr:81/embed/weekly-program"></iframe>
+		  </div>
+	  </div>
+		
+	    <footer class="info1">
+		  <div class="info2"><br /><br /><br />
+		    <h1>N.A.G. Corporation</h1>
+		    <a style="color:white" href="mailto:lepokescientifique@gmail.com"><h2>lepokescientifique@gmail.com</h2></a></br>
+		    <p>©2022 N.A.G. Corporation.</p>
+	      </div>
+	    </footer>
+	</div>
+	</body>
+</html>
