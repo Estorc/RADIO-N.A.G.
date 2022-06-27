@@ -631,7 +631,8 @@ height:80%;
 }
 
 
-@media only screen and (max-width: 500px) {
+
+@media only screen and (max-width: 750px) {
 	
 	.radio {
 		margin:0;
@@ -668,5 +669,58 @@ height:80%;
 		
 	}
 	
-
+	#schedule {
+		
+		width:500px;
+		height:300px;
+		
+	}
 }
+
+
+
+@media only screen and (max-width: 550px) {
+	
+	.radio {
+		margin:0;
+		padding: 0px; 
+		max-width:0%;
+		visibility:hidden;
+		
+	}
+	
+	
+	#volumebar {
+	
+		position: absolute;
+		vertical-align: bottom;
+		display: block;
+		background-color:black;
+		border: solid #222 1em;
+		position: absolute;
+		width: 1em;
+		left: -30%;
+		top: 3em;
+		z-index:-1;
+		border-radius: 20px;
+		
+	}
+	
+	.desc2 {
+
+		margin-left: 50px; 
+		margin-right: 50px; 
+		padding-left: 5px; 
+		padding-right: 5px; 
+		width:100%
+		
+	}
+	
+	#schedule {
+		
+		width:300px;
+		height:500px;
+		
+	}
+}
+
