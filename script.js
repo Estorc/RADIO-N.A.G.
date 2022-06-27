@@ -63,7 +63,7 @@ function togglePause() {
 			for (let item of playbuttonimg) {
 					item.src = 'images/pause.png';
 			}
-			audio.src = "https://famillelusson.freeboxos.fr/nag";
+			audio.src = "https://guillarda.ddns.net/streamlive";
 			audio.crossOrigin = "anonymous";
 			audio.play();
 		
@@ -202,7 +202,7 @@ function loadBars2() {
 // call this to Disable
 function disableScroll() {
 
-$.getJSON("https://famillelusson.freeboxos.fr/status-json.xsl", function(json) {
+$.getJSON("https://guillarda.ddns.net/infojson", function(json) {
 	document.getElementById('currentPlaying').innerHTML = (`<h2>${json.icestats.source.title}</h2>`)
 	document.getElementById('currentPlaying2').innerHTML = (`<h2>${json.icestats.source.title}</h2>`)
 });
@@ -220,7 +220,7 @@ $('.radiopopupfloat').css('visibility','hidden');
 $('.radiopopupfloat').css('opacity','0');
 
 	if (!isPlayed) {
-		audio.src = "https://famillelusson.freeboxos.fr/nag";
+		audio.src = "https://guillarda.ddns.net/streamlive";
 		audio.crossOrigin = "anonymous";
 		audio.play();
 		isPlayed = true;
@@ -278,7 +278,7 @@ function refresh() {
 }
  
 setInterval(function(){  
-		$.getJSON("https://famillelusson.freeboxos.fr/status-json.xsl", function(json) {
+		$.getJSON("https://guillarda.ddns.net/infojson", function(json) {
 			document.getElementById('currentPlaying').innerHTML = (`<h2>${json.icestats.source.title}</h2>`)
 			document.getElementById('currentPlaying2').innerHTML = (`<h2>${json.icestats.source.title}</h2>`)
 			document.title = (`${json.icestats.source.title} | RADIO N.A.G. Corporation`)
