@@ -293,6 +293,6 @@ setInterval(function(){
  
 function loadPage(url) {
 	
-	$("#content").load(url);
+	$("#content").load(url+" #content");
 	
 }
