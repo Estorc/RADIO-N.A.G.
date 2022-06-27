@@ -293,6 +293,7 @@ setInterval(function(){
  
 function loadPage(url) {
 	
+	window.history.pushState("", document.title, url);
 	$("#content").load(url+" #content");
 	
 }
