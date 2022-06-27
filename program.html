@@ -18,97 +18,6 @@
 	  <meta property="og:site_name" content="Radio N.A.G." />
 	  <link rel="icon" href="images/nag_token.png" />
 	</head>
-
-
-		  <div style="text-align:center;" class="radiopopup unselectable">
-		  
-			<div id="volumebar">
-			  <div id="volumedot"> 
-			  </div>
-			</div>
-			
-			<div id="playbutton">
-			<a href="javascript:void(0)" onclick="togglePause()"><img id='playbuttonimg' class='unselectable pauseButton' src='images/pause.png'/></a>
-			</div>
-			
-			<script>
-				var e = document.querySelector('#volumebar');
-				var eInner = document.querySelector('#volumedot');
-				var drag = false;
-				e.addEventListener('mousedown',function(ev){
-				   drag = true;
-				   eInner.style.cursor = 'grabbing'
-				   updateBar(ev.clientY);
-				});
-				document.addEventListener('mousemove',function(ev){
-				   if(drag){
-					  updateBar(ev.clientY);
-				   }
-				});
-				e.addEventListener('touchstart',function(ev){
-				   drag = true;
-				   eInner.style.cursor = 'grabbing'
-				   updateBar(ev.touches[0].clientY);
-				});
-				document.addEventListener('touchmove',function(ev){
-				   if(drag){
-					   updateBar(ev.touches[0].clientY);
-					}
-				});
-				document.addEventListener('mouseup',function(ev){
-				 drag = false;
-				 eInner.style.cursor = 'grab'
-				});
-				document.addEventListener('touchend',function(ev){
-				 drag = false;
-				 eInner.style.cursor = 'grab'
-				});
-				
-				var updateBar = function (y, vol) {
-				   var volume = e;
-						var percentage;
-						//if only volume have specificed
-						//then direct update volume
-						if (vol) {
-							percentage = vol * 100;
-						} else {
-							var position = y - volume.offsetTop - document.querySelector('.radiopopup').offsetTop - eInner.offsetHeight*0.75;
-							percentage = 100 * position / volume.clientHeight;
-						}
-
-						if (percentage > 100) {
-							percentage = 100;
-						}
-						if (percentage < 0) {
-							percentage = 0;
-						}
-
-						//update volume bar and video volume
-						eInner.style.top = 'calc('+ percentage +'% - 1.5em)';
-						audio.volume = (100 - percentage) / 100;
-				};
-			</script>
-			
-		    <div class="crossradio">
-		    <a href="javascript:void(0)" onclick="enableScroll()"><img src="images/cross.png" class='unselectable' width="32px" height="32px"/></a>
-			</div>
-			<strong>
-			<p class="songname3" id="songname">Joue Actuellement :</p>
-			<div style="margin:0 2em;text-align:left;border:solid 3px;border-color: #695213;border-radius: 25px;">
-			<marquee behavior="scroll" class="songbar" id='currentPlaying'>
-			<h2>ㅤ</h2>
-			</marquee>
-			<br style="line-height:28px;">
-			</div>
-			<img style="max-width:100%;max-height:80%;margin-top:-2%" class='unselectable' src="images/radio_logo.png"/>
-			</strong>
-		  <canvas id="canvas"></canvas>
-		  </div>
-		  
-		  
-		  
-		  
-		  
 		  
 		  
 		  
@@ -140,6 +49,7 @@
 		  
 		  </div>
 		  
+	  <div id="content">
 	  <div class="titlelogo"> 
 	  <a href="index.html">
 		<img src="images/naglogo.png" class='unselectable'>
@@ -156,6 +66,8 @@
 		  <div style="margin: 50px auto; animation-name: appear1;animation-duration: 2s;">
 		  <iframe height="400px" width="800px" scrolling="no" frameborder="0" src="http://famillelusson.freeboxos.fr:81/embed/weekly-program"></iframe>
 		  </div>
+	  </div>
+	  
 	  </div>
 		
 	    <footer class="info1">
