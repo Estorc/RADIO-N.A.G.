@@ -8,9 +8,7 @@ $.getJSON("https://guillarda.ddns.net/api/week-info", function(json) {
 	const week = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
 	
 	
-	console.log(week)
 	week.forEach(function(day) {
-		console.log(day)
 		json[day].forEach(function(element){
 			
 			let data_start = element.start_timestamp.substr(11, 5)
