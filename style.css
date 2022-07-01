@@ -712,3 +712,36 @@ height:80%;
 	}
 }
 
+
+
+
+#volumebar2 {
+	
+	position: absolute;
+	vertical-align: bottom;
+	display: block;
+	background-color:black;
+	position: absolute;
+	width: 70%;
+	height: 1em;
+	left: 2em;
+	top: 9.5em;
+	z-index:-1;
+	border-radius: 20px;
+	
+}
+
+#volumedot2 {
+	
+	background-color:grey;
+	border: solid white 0.5em;
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	left: -1em;
+	top: -0.5em;
+	z-index:-1;
+	cursor: grab;
+	border-radius: 20px;
+	
+}

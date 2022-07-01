@@ -321,10 +321,13 @@ function volumeBar(v) {
 	
 	
 var e = document.querySelector('#volumebar');
+var e2 = document.querySelector('#volumebar2');
 var eInner = document.querySelector('#volumedot');
+var eInner2 = document.querySelector('#volumedot2');
 var drag = false;
+var drag2 = false;
 
-var updateBar = function (y, vol) {
+var updateBar = function (y, x, vol) {
 	var volume = e;
 		var percentage;
 		//if only volume have specificed
@@ -332,8 +335,13 @@ var updateBar = function (y, vol) {
 		if (vol) {
 			percentage = vol * 100;
 		} else {
-			var position = y - volume.offsetTop - document.querySelector('.radiopopup').offsetTop - eInner.offsetHeight*0.75;
-			percentage = 100 * position / volume.clientHeight;
+			if (x) {
+				var position = x - e2.offsetLeft - document.querySelector('.radiopopupfloat').offsetLeft;
+				percentage = 100 - 100 * position / e2.clientWidth;
+			} else {
+				var position = y - volume.offsetTop - document.querySelector('.radiopopup').offsetTop - eInner.offsetHeight*0.75;
+				percentage = 100 * position / volume.clientHeight;
+			}
 		}
 
 		if (percentage > 100) {
@@ -345,11 +353,12 @@ var updateBar = function (y, vol) {
 
 		//update volume bar and video volume
 		eInner.style.top = 'calc('+ percentage +'% - 1.5em)';
+		document.querySelector('#volumedot2').style.left = 'calc('+(100 - percentage) +'% - 1em)';
 		audio.volume = (100 - percentage) / 100;
 		document.cookie = `Volume=${audio.volume}`;
 };
 	
-	if (typeof v !== 'undefined') {
+	if (v) {
 		
 		updateBar(0, v)
 		
@@ -377,12 +386,42 @@ var updateBar = function (y, vol) {
 				});
 				document.addEventListener('mouseup',function(ev){
 				 drag = false;
+				 drag2 = false;
 				 eInner.style.cursor = 'grab'
 				});
 				document.addEventListener('touchend',function(ev){
 				 drag = false;
+				 drag2 = false;
 				 eInner.style.cursor = 'grab'
 				});
+				
+				
+				
+				
+				
+				
+			if (e2) {
+				e2.addEventListener('mousedown',function(ev){
+				   drag2 = true;
+				   eInner.style.cursor = 'grabbing'
+				   updateBar(0,ev.clientX);
+				});
+				document.addEventListener('mousemove',function(ev){
+				   if(drag2){
+					  updateBar(0,ev.clientX);
+				   }
+				});
+				e2.addEventListener('touchstart',function(ev){
+				   drag2 = true;
+				   eInner.style.cursor = 'grabbing'
+				   updateBar(0,ev.touches[0].clientX);
+				});
+				document.addEventListener('touchmove',function(ev){
+				   if(drag2){
+					   updateBar(0,ev.touches[0].clientX);
+					}
+				});
+			}
 	
 }
 
