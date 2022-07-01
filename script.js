@@ -388,5 +388,5 @@ var updateBar = function (y, vol) {
 
 
 window.addEventListener('load', function () {
-	volumeBar(getCookie('Volume'));
+	volumeBar(1-getCookie('Volume'));
 });
