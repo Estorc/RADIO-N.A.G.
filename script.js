@@ -297,3 +297,96 @@ function loadPage(url) {
 	$("#content").load(url+" #content");
 	
 }
+
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
+
+function volumeBar(v) {
+	
+	
+var e = document.querySelector('#volumebar');
+var eInner = document.querySelector('#volumedot');
+var drag = false;
+
+var updateBar = function (y, vol) {
+	var volume = e;
+		var percentage;
+		//if only volume have specificed
+		//then direct update volume
+		if (vol) {
+			percentage = vol * 100;
+		} else {
+			var position = y - volume.offsetTop - document.querySelector('.radiopopup').offsetTop - eInner.offsetHeight*0.75;
+			percentage = 100 * position / volume.clientHeight;
+		}
+
+		if (percentage > 100) {
+			percentage = 100;
+		}
+		if (percentage < 0) {
+			percentage = 0;
+		}
+
+		//update volume bar and video volume
+		eInner.style.top = 'calc('+ percentage +'% - 1.5em)';
+		audio.volume = (100 - percentage) / 100;
+		document.cookie = `Volume=${audio.volume}`;
+};
+	
+	if (typeof v !== 'undefined') {
+		
+		updateBar(0, v)
+		
+	}
+				
+				e.addEventListener('mousedown',function(ev){
+				   drag = true;
+				   eInner.style.cursor = 'grabbing'
+				   updateBar(ev.clientY);
+				});
+				document.addEventListener('mousemove',function(ev){
+				   if(drag){
+					  updateBar(ev.clientY);
+				   }
+				});
+				e.addEventListener('touchstart',function(ev){
+				   drag = true;
+				   eInner.style.cursor = 'grabbing'
+				   updateBar(ev.touches[0].clientY);
+				});
+				document.addEventListener('touchmove',function(ev){
+				   if(drag){
+					   updateBar(ev.touches[0].clientY);
+					}
+				});
+				document.addEventListener('mouseup',function(ev){
+				 drag = false;
+				 eInner.style.cursor = 'grab'
+				});
+				document.addEventListener('touchend',function(ev){
+				 drag = false;
+				 eInner.style.cursor = 'grab'
+				});
+	
+}
+
+
+window.addEventListener('load', function () {
+	volumeBar(getCookie('Volume'));
+});

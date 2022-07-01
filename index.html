@@ -32,61 +32,7 @@
 			</div>
 			
 			<script>
-				var e = document.querySelector('#volumebar');
-				var eInner = document.querySelector('#volumedot');
-				var drag = false;
-				e.addEventListener('mousedown',function(ev){
-				   drag = true;
-				   eInner.style.cursor = 'grabbing'
-				   updateBar(ev.clientY);
-				});
-				document.addEventListener('mousemove',function(ev){
-				   if(drag){
-					  updateBar(ev.clientY);
-				   }
-				});
-				e.addEventListener('touchstart',function(ev){
-				   drag = true;
-				   eInner.style.cursor = 'grabbing'
-				   updateBar(ev.touches[0].clientY);
-				});
-				document.addEventListener('touchmove',function(ev){
-				   if(drag){
-					   updateBar(ev.touches[0].clientY);
-					}
-				});
-				document.addEventListener('mouseup',function(ev){
-				 drag = false;
-				 eInner.style.cursor = 'grab'
-				});
-				document.addEventListener('touchend',function(ev){
-				 drag = false;
-				 eInner.style.cursor = 'grab'
-				});
-				
-				var updateBar = function (y, vol) {
-				   var volume = e;
-						var percentage;
-						//if only volume have specificed
-						//then direct update volume
-						if (vol) {
-							percentage = vol * 100;
-						} else {
-							var position = y - volume.offsetTop - document.querySelector('.radiopopup').offsetTop - eInner.offsetHeight*0.75;
-							percentage = 100 * position / volume.clientHeight;
-						}
-
-						if (percentage > 100) {
-							percentage = 100;
-						}
-						if (percentage < 0) {
-							percentage = 0;
-						}
-
-						//update volume bar and video volume
-						eInner.style.top = 'calc('+ percentage +'% - 1.5em)';
-						audio.volume = (100 - percentage) / 100;
-				};
+				volumeBar();
 			</script>
 			
 		    <div class="crossradio">
