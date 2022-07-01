@@ -710,6 +710,19 @@ height:80%;
 		height:500px;
 		
 	}
+	
+	.radiopopupfloat {
+	
+	  display: block;
+	  margin:0 auto;
+	  right:auto;
+	  left: 50%;
+	  margin-left:-10em;
+	  width: 20em;
+	  height: 5em;
+		
+	}
+	
 }
 
 
@@ -724,8 +737,8 @@ height:80%;
 	position: absolute;
 	width: 70%;
 	height: 1em;
-	left: 2em;
-	top: 9.5em;
+	left: 5%;
+	top: 117.5%;
 	z-index:-1;
 	border-radius: 20px;
 	
