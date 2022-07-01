@@ -360,7 +360,7 @@ var updateBar = function (y, x, vol) {
 	
 	if (v) {
 		
-		updateBar(0, v)
+		updateBar(0, 0, v)
 		
 	}
 				
