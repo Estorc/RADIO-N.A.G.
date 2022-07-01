@@ -316,6 +316,10 @@ function getCookie(cname) {
 }
 
 
+const d = new Date();
+d.setTime(d.getTime() + (31*24*60*60*1000));
+const expires = "expires="+ d.toUTCString();
+
 
 function volumeBar(v) {
 	
@@ -355,7 +359,7 @@ var updateBar = function (y, x, vol) {
 		eInner.style.top = 'calc('+ percentage +'% - 1.5em)';
 		document.querySelector('#volumedot2').style.left = 'calc('+(100 - percentage) +'% - 1em)';
 		audio.volume = (100 - percentage) / 100;
-		document.cookie = `Volume=${audio.volume}`;
+		document.cookie = `Volume=${audio.volume};${expires}`;
 };
 	
 	if (v) {
@@ -427,5 +431,7 @@ var updateBar = function (y, x, vol) {
 
 
 window.addEventListener('load', function () {
-	volumeBar(1-getCookie('Volume'));
+	if (getCookie('Volume')) {
+		volumeBar(1-getCookie('Volume'));
+	}
 });
