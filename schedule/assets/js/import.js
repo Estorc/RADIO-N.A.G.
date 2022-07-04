@@ -19,7 +19,7 @@ $.getJSON("https://guillarda.ddns.net/api/week-info", function(json) {
 			document.getElementById(`${day}`).innerHTML += 
 			(`
 				<li class="cd-schedule__event">
-				  <a data-start="${data_start}" data-end="${data_end}" data-content="${description}" data-event="event-${getRandomInt(maxEvent)}" href="#0">
+				  <a data-start="${data_start}" data-end="${data_end}" data-content="${description}" data-event="event-${name}" href="#0">
 					<em class="cd-schedule__name">${name}</em>
 				  </a>
 				</li>

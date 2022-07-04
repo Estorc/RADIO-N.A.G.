@@ -3530,7 +3530,7 @@ u,
 	@media (min-width: 64rem) {
 		:root {
 			--text-base-size: 1.25em;
-			--text-scale-ratio: 1.25
+			--text-scale-ratio: 1.33
 		}
 	}
 }
@@ -3892,6 +3892,7 @@ a {
 
 .cd-schedule__event {
 	-ms-flex-negative: 0;
+	overflow: hidden;
 	flex-shrink: 0;
 	float: left;
 	height: 150px;
@@ -3899,6 +3900,7 @@ a {
 	max-width: 300px;
 	margin-right: 1.25em;
 	margin-right: var(--space-md);
+	padding:2px 2px;
 	transition: opacity .2s, background .2s
 }
 
@@ -3991,30 +3993,6 @@ a {
 		margin-bottom: 0.125em;
 		margin-bottom: var(--space-xxxxs)
 	}
-}
-
-.cd-schedule__event [data-event="event-1"],
-.cd-schedule-modal[data-event="event-1"] .cd-schedule-modal__header-bg {
-	background: hsl(199, 25%, 46%);
-	background: var(--cd-color-event-1)
-}
-
-.cd-schedule__event [data-event="event-2"],
-.cd-schedule-modal[data-event="event-2"] .cd-schedule-modal__header-bg {
-	background: hsl(271, 23%, 26%);
-	background: var(--cd-color-event-2)
-}
-
-.cd-schedule__event [data-event="event-3"],
-.cd-schedule-modal[data-event="event-3"] .cd-schedule-modal__header-bg {
-	background: hsl(162, 14%, 68%);
-	background: var(--cd-color-event-3)
-}
-
-.cd-schedule__event [data-event="event-4"],
-.cd-schedule-modal[data-event="event-4"] .cd-schedule-modal__header-bg {
-	background: hsl(31, 89%, 68%);
-	background: var(--cd-color-event-4)
 }
 
 .cd-schedule-modal {
@@ -4125,8 +4103,7 @@ a {
 @media (min-width: 64rem) {
 	.cd-schedule-modal__event-info {
 		opacity: 0;
-		font-size: 0.83333em;
-		font-size: var(--text-sm)
+		font-size: 1em;
 	}
 
 	.cd-schedule-modal__event-info>div {
@@ -4323,4 +4300,68 @@ a {
 
 .cd-article-link:hover {
 	opacity: 0.8
+}
+
+
+
+
+
+
+
+.cd-schedule__event [data-event="event-Chansons"],
+.cd-schedule-modal[data-event="event-Chansons"] .cd-schedule-modal__header-bg {
+	background: hsl(31, 89%, 68%);
+	background: var(--cd-color-event-4)
+}
+
+.cd-schedule__event [data-event="event-Sans Thème"],
+.cd-schedule-modal[data-event="event-Sans Thème"] .cd-schedule-modal__header-bg {
+	background: hsl(162, 14%, 68%);
+	background: var(--cd-color-event-3)
+}
+
+.cd-schedule__event [data-event="event-Jeux Vidéos"],
+.cd-schedule-modal[data-event="event-Jeux Vidéos"] .cd-schedule-modal__header-bg {
+	background: hsl(271, 23%, 26%);
+	background: var(--cd-color-event-2)
+}
+
+.cd-schedule__event [data-event="event-Animés"],
+.cd-schedule-modal[data-event="event-Animés"] .cd-schedule-modal__header-bg {
+	background: hsl(199, 40%, 30%);
+}
+
+.cd-schedule__event [data-event="event-Metal"],
+.cd-schedule-modal[data-event="event-Metal"] .cd-schedule-modal__header-bg {
+	background: hsl(199, 0%, 50%);
+}
+
+.cd-schedule__event [data-event="event-Rock"],
+.cd-schedule-modal[data-event="event-Rock"] .cd-schedule-modal__header-bg {
+	background: hsl(10, 25%, 50%);
+}
+
+.cd-schedule__event [data-event="event-Classique"],
+.cd-schedule-modal[data-event="event-Classique"] .cd-schedule-modal__header-bg {
+	background: hsl(40, 25%, 50%);
+}
+
+.cd-schedule__event [data-event="event-Rap"],
+.cd-schedule-modal[data-event="event-Rap"] .cd-schedule-modal__header-bg {
+	background: hsl(40, 0%, 25%);
+}
+
+.cd-schedule__event [data-event="event-Chiptune"],
+.cd-schedule-modal[data-event="event-Chiptune"] .cd-schedule-modal__header-bg {
+	background: hsl(185, 80%, 30%);
+}
+
+.cd-schedule__event [data-event="event-Disco"],
+.cd-schedule-modal[data-event="event-Disco"] .cd-schedule-modal__header-bg {
+	background: hsl(50, 100%, 40%);
+}
+
+.cd-schedule__event [data-event="event-J-Pop"],
+.cd-schedule-modal[data-event="event-J-Pop"] .cd-schedule-modal__header-bg {
+	background: hsl(0, 80%, 30%);
 }
