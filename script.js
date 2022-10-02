@@ -203,8 +203,10 @@ function loadBars2() {
 function disableScroll() {
 
 $.getJSON("https://guillarda.ddns.net/infojson", function(json) {
-	document.getElementById('currentPlaying').innerHTML = (`<h2>${json.icestats.source.title}</h2>`)
-	document.getElementById('currentPlaying2').innerHTML = (`<h2>${json.icestats.source.title}</h2>`)
+	let title = json.icestats.source.title;
+	if (typeof title === 'undefined') { title = "Émission sans titre"}
+	document.getElementById('currentPlaying').innerHTML = (`<h2>${title}</h2>`)
+	document.getElementById('currentPlaying2').innerHTML = (`<h2>${title}</h2>`)
 });
 $('body').addClass('stop-scrolling')
 $('.blur').css('filter','blur(4px)');
@@ -279,9 +281,11 @@ function refresh() {
  
 setInterval(function(){  
 		$.getJSON("https://guillarda.ddns.net/infojson", function(json) {
-			document.getElementById('currentPlaying').innerHTML = (`<h2>${json.icestats.source.title}</h2>`)
-			document.getElementById('currentPlaying2').innerHTML = (`<h2>${json.icestats.source.title}</h2>`)
-			document.title = (`${json.icestats.source.title} | RADIO N.A.G. Corporation`)
+			let title = json.icestats.source.title;
+			if (typeof title === 'undefined') { title = "Émission sans titre"}
+			document.getElementById('currentPlaying').innerHTML = (`<h2>${title}</h2>`)
+			document.getElementById('currentPlaying2').innerHTML = (`<h2>${title}</h2>`)
+			document.title = (`${title} | RADIO N.A.G. Corporation`)
 		});
  }, 2000);
  
