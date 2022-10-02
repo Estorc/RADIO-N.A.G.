@@ -4306,7 +4306,10 @@ a {
 
 
 
-
+.cd-schedule__event a,
+.cd-schedule-modal .cd-schedule-modal__header-bg {
+	background: hsl(0, 0%, 40%);
+}
 
 .cd-schedule__event [data-event="event-Chansons"],
 .cd-schedule-modal[data-event="event-Chansons"] .cd-schedule-modal__header-bg {
