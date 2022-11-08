@@ -13,8 +13,27 @@ $.getJSON("https://guillarda.ddns.net/api/week-info", function(json) {
 			
 			let data_start = element.start_timestamp.substr(11, 5)
 			let data_end = element.end_timestamp.substr(11, 5)
+			let sdata_start
+			let sdata_end
+			let next_day
 			let name = element.name;
 			let description = element.description + element.instance_description;
+			let make_nextday = false;
+			
+			if (data_start > data_end) {
+				
+				
+				sdata_start = '00:00';
+				sdata_end = data_end;
+				next_day = week.findIndex(x => x === day)+1;
+				next_day = (next_day > 6) ? 0 : next_day;
+				next_day = week[next_day];
+				console.log(day);
+				console.log(next_day)
+				data_end = '00:00';
+				make_nextday = true;
+			
+			}
 			
 			document.getElementById(`${day}`).innerHTML += 
 			(`
@@ -24,6 +43,19 @@ $.getJSON("https://guillarda.ddns.net/api/week-info", function(json) {
 				  </a>
 				</li>
 			`)
+			
+			
+			if (make_nextday) {
+				document.getElementById(`${next_day}`).innerHTML += 
+				(`
+					<li class="cd-schedule__event">
+					  <a data-start="${sdata_start}" data-end="${sdata_end}" data-content="${description}" data-event="event-${name}" href="#0">
+						<em class="cd-schedule__name">${name}</em>
+					  </a>
+					</li>
+				`)
+			
+			}
 			
 		});
 	});
