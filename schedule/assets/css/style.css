@@ -4368,3 +4368,8 @@ a {
 .cd-schedule-modal[data-event="event-J-Pop"] .cd-schedule-modal__header-bg {
 	background: hsl(0, 80%, 30%);
 }
+
+.cd-schedule__event [data-event="event-Pop"],
+.cd-schedule-modal[data-event="event-Pop"] .cd-schedule-modal__header-bg {
+	background: hsl(0, 80%, 30%);
+}

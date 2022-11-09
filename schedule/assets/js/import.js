@@ -45,7 +45,7 @@ $.getJSON("https://guillarda.ddns.net/api/week-info", function(json) {
 			`)
 			
 			
-			if (make_nextday) {
+			if (make_nextday && sdata_start != sdata_end) {
 				document.getElementById(`${next_day}`).innerHTML += 
 				(`
 					<li class="cd-schedule__event">
