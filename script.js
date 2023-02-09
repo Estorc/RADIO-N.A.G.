@@ -341,7 +341,7 @@ var updateBar = function (y, x, vol) {
 		//if only volume have specificed
 		//then direct update volume
 		if (vol) {
-			percentage = vol * 100;
+			percentage = (vol-1) * 100;
 		} else {
 			if (x) {
 				var position = x - e2.offsetLeft - document.querySelector('.radiopopupfloat').offsetLeft;
@@ -436,6 +436,6 @@ var updateBar = function (y, x, vol) {
 
 window.addEventListener('load', function () {
 	if (getCookie('Volume')) {
-		volumeBar(1-getCookie('Volume'));
+		volumeBar(2-getCookie('Volume'));
 	}
 });
