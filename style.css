@@ -70,6 +70,8 @@ font-family: 'Raleway', sans-serif;
   border: solid 6px;
   border-color: #695213;
   border-radius: 25px;
+  display: flex;
+  flex-direction: column;
 	
 }
 
@@ -155,6 +157,7 @@ font-family: 'Raleway', sans-serif;
  
 .crossradio {
 	
+  position:relative;
   font-size:50px;
   text-align:right;
   margin-top:-10px;
@@ -387,7 +390,7 @@ animation-duration: 4s;
 .radio img {
 
 width:100%;
-height:auto;
+height:52%;
 
 }
 
