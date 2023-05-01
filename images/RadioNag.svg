@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 275.07 169.61">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 16.5px;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        font-size: 76px;
+        letter-spacing: 0em;
+      }
+
+      .cls-2, .cls-3 {
+        font-family: Oswald-Regular, Oswald;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        font-size: 32.75px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="89.25" y=".04" width="10.54" height="47.04"/>
+  <rect class="cls-1" x="61.12" y="126.88" width="213.96" height="10.81"/>
+  <circle class="cls-1" cx="200.03" cy="30.7" r="9.45"/>
+  <path class="cls-4" d="m84.8,161.36c-42.28,0-76.55-34.27-76.55-76.55S42.52,8.25,84.8,8.25"/>
+  <text class="cls-3" transform="translate(103.61 44.61)"><tspan class="cls-7" x="0" y="0">RA</tspan><tspan class="cls-5" x="34.87" y="0">D</tspan><tspan class="cls-6" x="53.31" y="0">I</tspan><tspan class="cls-7" x="61.91" y="0">O</tspan></text>
+  <text class="cls-2" transform="translate(62.95 118.7)"><tspan x="0" y="0">N.A.G.</tspan></text>
+</svg>
