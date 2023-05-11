@@ -63,7 +63,7 @@ function togglePause() {
 			for (let item of playbuttonimg) {
 					item.src = 'images/pause.png';
 			}
-			audio.src = "https://guillarda.ddns.net/streamlive";
+			audio.src = "https://radio-admin.guillarda.fr/streamlive";
 			audio.crossOrigin = "anonymous";
 			audio.play();
 		
@@ -202,7 +202,7 @@ function loadBars2() {
 // call this to Disable
 function disableScroll() {
 
-$.getJSON("https://guillarda.ddns.net/infojson", function(json) {
+$.getJSON("https://radio-admin.guillarda.fr/infojson", function(json) {
 	let title = json.icestats.source.title;
 	if (typeof title === 'undefined') { title = "Émission sans titre"}
 	document.getElementById('currentPlaying').innerHTML = (`<h2>${title}</h2>`)
@@ -222,7 +222,7 @@ $('.radiopopupfloat').css('visibility','hidden');
 $('.radiopopupfloat').css('opacity','0');
 
 	if (!isPlayed) {
-		audio.src = "https://guillarda.ddns.net/streamlive";
+		audio.src = "https://radio-admin.guillarda.fr/streamlive";
 		audio.crossOrigin = "anonymous";
 		audio.play();
 		isPlayed = true;
@@ -280,7 +280,7 @@ function refresh() {
 }
  
 setInterval(function(){  
-		$.getJSON("https://guillarda.ddns.net/infojson", function(json) {
+		$.getJSON("https://radio-admin.guillarda.fr/infojson", function(json) {
 			let title = json.icestats.source.title;
 			if (typeof title === 'undefined') { title = "Émission sans titre"}
 			document.getElementById('currentPlaying').innerHTML = (`<h2>${title}</h2>`)
