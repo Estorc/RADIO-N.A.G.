@@ -3,7 +3,7 @@ function getRandomInt(max) {
 }
 
 
-$.getJSON("https://guillarda.ddns.net/api/week-info", function(json) {
+$.getJSON("https://radio-admin.guillarda.fr/api/week-info", function(json) {
 	const maxEvent = 4;
 	const week = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
 	
